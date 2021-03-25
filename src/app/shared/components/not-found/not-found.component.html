@@ -1,0 +1,16 @@
+<div class="L-page-not-found G-column-center-center G-w-100-P G-h-100-P G-p-25">
+  <div class="L-page-not-found-image">
+    <img [src]="NOT_FOUND_PNG" alt="not found" />
+  </div>
+  <p class="G-text-center G-gray7 G-fs-18 G-Roboto-Regular G-mt-15">
+    This page you were looking for appears to have been moved, deleted or does not exist!
+  </p>
+  <div class="L-not-found-btn G-mt-20">
+    <button (click)="navigateHome()" class="G-flex-align-center">
+      <svg>
+        <use xlink:href="assets/images/sprite.svg#arrow-back"></use>
+      </svg>
+      <span class="G-ml-20 G-gray7 G-fs-18">Back to home</span>
+    </button>
+  </div>
+</div>

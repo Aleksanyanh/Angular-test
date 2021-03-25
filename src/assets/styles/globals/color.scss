@@ -1,0 +1,241 @@
+@import 'variables';
+
+// TEXT COLORS
+.G-app-color {
+  color: $app-color !important;
+}
+.G-white {
+  color: $white !important;
+}
+.G-black {
+  color: $black !important;
+}
+
+// gray
+.G-gray1 {
+  color: $gray1 !important;
+}
+.G-gray2 {
+  color: $gray2 !important;
+}
+.G-gray3 {
+  color: $gray3 !important;
+}
+.G-gray4 {
+  color: $gray4 !important;
+}
+.G-gray5 {
+  color: $gray5 !important;
+}
+.G-gray6 {
+  color: $gray6 !important;
+}
+.G-gray7 {
+  color: $gray7 !important;
+}
+.G-gray8 {
+  color: $gray8 !important;
+}
+.G-gray9 {
+  color: $gray9 !important;
+}
+.G-back-gray16 {
+  color: $gray16 !important;
+}
+.G-back-gray17 {
+  color: $gray17 !important;
+}
+.G-gray18 {
+  color: $gray18 !important;
+}
+.G-gray19 {
+  color: $gray19 !important;
+}
+
+// green
+.G-green1 {
+  color: $green1 !important;
+}
+.G-green2 {
+  color: $green2 !important;
+}
+
+// red
+.G-red1 {
+  color: $red1 !important;
+}
+.G-red2 {
+  color: $red2 !important;
+}
+.G-red3 {
+  color: $red3 !important;
+}
+.G-red4 {
+  color: $red4 !important;
+}
+.G-red5 {
+  color: $red5 !important;
+}
+
+// yellow
+.G-yellow1 {
+  color: $yellow1 !important;
+}
+.G-yellow2 {
+  color: $yellow2 !important;
+}
+.G-yellow3 {
+  color: $yellow3 !important;
+}
+
+// blue
+.G-blue1 {
+  color: $blue1 !important;
+}
+.G-blue2 {
+  color: $blue2 !important;
+}
+.G-blue3 {
+  color: $blue3 !important;
+}
+.G-blue4 {
+  color: $blue4 !important;
+}
+
+.G-blue5 {
+  color: $blue5 !important;
+}
+
+.G-blue6 {
+  color: $blue6 !important;
+}
+
+.G-blue7 {
+  color: $blue7 !important;
+}
+.G-blue8 {
+  color: $blue8 !important;
+}
+
+// BACKGROUND COLORS
+
+.G-back-app-color {
+  background-color: $app-color !important;
+}
+.G-back-white {
+  background-color: $white !important;
+}
+.G-back-black {
+  background-color: $black !important;
+}
+
+// gray
+.G-back-gray1 {
+  background-color: $gray1 !important;
+}
+.G-back-gray2 {
+  background-color: $gray2 !important;
+}
+.G-back-gray3 {
+  background-color: $gray3 !important;
+}
+.G-back-gray4 {
+  background-color: $gray4 !important;
+}
+.G-back-gray5 {
+  background-color: $gray5 !important;
+}
+.G-back-gray6 {
+  background-color: $gray6 !important;
+}
+.G-back-gray7 {
+  background-color: $gray7 !important;
+}
+.G-back-gray8 {
+  background-color: $gray8 !important;
+}
+.G-back-gray9 {
+  background-color: $gray9 !important;
+}
+
+// green
+.G-back-green1 {
+  background-color: $green1 !important;
+}
+.G-back-green2 {
+  background-color: $green2 !important;
+}
+
+// red
+.G-back-red1 {
+  background-color: $red1 !important;
+}
+.G-back-red2 {
+  background-color: $red2 !important;
+}
+.G-back-red3 {
+  background-color: $red3 !important;
+}
+.G-back-red4 {
+  background-color: $red4 !important;
+}
+
+// yellow
+.G-back-yellow1 {
+  background-color: $yellow1 !important;
+}
+.G-back-yellow2 {
+  background-color: $yellow2 !important;
+}
+.G-back-yellow3 {
+  background-color: $yellow3 !important;
+}
+
+// blue
+.G-back-blue1 {
+  background-color: $blue1 !important;
+}
+.G-back-blue2 {
+  background-color: $blue2 !important;
+}
+.G-back-blue3 {
+  background-color: $blue3 !important;
+}
+.G-back-blue4 {
+  background-color: $blue4 !important;
+}
+.G-back-blue6 {
+  background-color: $blue6 !important;
+}
+
+// linear-gradient gray
+
+.G-linner-gradient-gray1 {
+  background: $gradient-gray1;
+}
+
+.G-status {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: block;
+}
+
+.G-status-blocked {
+  background: transparent linear-gradient(180deg, $yellow1 0%, $yellow3 100%) 0% 0% no-repeat padding-box;
+}
+.G-status-inactive {
+  background: transparent linear-gradient(180deg, $red1 0%, $red2 100%) 0% 0% no-repeat padding-box;
+}
+.G-status-deleted {
+  background: transparent linear-gradient(180deg, $red1 0%, $red2 100%) 0% 0% no-repeat padding-box;
+}
+.G-status-suspended {
+  background: transparent linear-gradient(180deg, $black4 0%, $black 100%) 0% 0% no-repeat padding-box;
+}
+.G-status-online {
+  background: transparent linear-gradient(180deg, $green1 0%, $green2 100%) 0% 0% no-repeat padding-box;
+}
+.G-status-offline {
+  background: transparent linear-gradient(180deg, $gray4 0%, $gray6 100%) 0% 0% no-repeat padding-box;
+}

@@ -1,0 +1,159 @@
+//Roboto fonts
+
+@font-face {
+  font-family: 'Roboto-Black';
+  src: url('./roboto/Roboto-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('./roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('./roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url('./roboto/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('./roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url('./roboto/Roboto-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+// poppins fonts
+
+@font-face {
+  font-family: 'Poppins-Black';
+  src: url('./poppins/Poppins-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('./poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-ExtraBold';
+  src: url('./poppins/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-ExtraLight';
+  src: url('./poppins/Poppins-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('./poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('./poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('./poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('./poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins-Thin';
+  src: url('./poppins/Poppins-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+// ROBOTO
+.G-Roboto-Black {
+  font-family: 'Roboto-Black';
+}
+.G-Roboto-Bold {
+  font-family: 'Roboto-Bold';
+}
+.G-Roboto-Light {
+  font-family: 'Roboto-Light';
+}
+.G-Roboto-Medium {
+  font-family: 'Roboto-Medium';
+}
+.G-Roboto-Regular {
+  font-family: 'Roboto-Regular';
+}
+.G-Roboto-Thin {
+  font-family: 'Roboto-Thin';
+}
+
+//  POPINS
+.G-Popins-Black {
+  font-family: 'Poppins-Black';
+}
+.G-Popins-Bold {
+  font-family: 'Poppins-Bold';
+}
+.G-Popins-ExtraBold {
+  font-family: 'Poppins-ExtraBold';
+}
+.G-Popins-ExtraLight {
+  font-family: 'Poppins-ExtraLight';
+}
+.G-Popins-Light {
+  font-family: 'Poppins-Light';
+}
+.G-Popins-Medium {
+  font-family: 'Poppins-Medium';
+}
+.G-Popins-Regular {
+  font-family: 'Poppins-Regular';
+}
+.G-Popins-SemiBold {
+  font-family: 'Poppins-SemiBold';
+}
+.G-Popins-Thin {
+  font-family: 'Poppins-Thin';
+}
+
+

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AUTH, FEATURES } from '@app/core/constants/path';
+import { NotFoundComponent } from '@app/shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     path: FEATURES,
     loadChildren: () => import(`../${FEATURES}/${FEATURES}.module`).then((m) => m.FeaturesModule),
   },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

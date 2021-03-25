@@ -1,0 +1,210 @@
+@import 'variables';
+@import 'globals/mixin';
+
+.G-image-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.G-image-contain {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.G-tooltip-z {
+  z-index: $tooltip-z !important;
+}
+
+.G-modal-z {
+  z-index: $modal-z !important;
+}
+
+.G-header-z {
+  z-index: $header-z !important;
+}
+
+.G-cursor {
+  cursor: pointer;
+}
+
+.G-cursor-default {
+  cursor: default;
+}
+
+.G-cursor-zoom-in {
+  cursor: zoom-in;
+}
+
+.G-cursor-grab {
+  cursor: grab;
+}
+
+.G-cursor-copy {
+  cursor: copy;
+}
+
+.G-cursor-cell {
+  cursor: cell;
+}
+
+.G-capitalize {
+  text-transform: capitalize;
+}
+
+.G-underline {
+  text-decoration: underline;
+}
+
+.G-uppercase {
+  text-transform: uppercase;
+}
+
+.G-break-word {
+  word-break: break-word;
+}
+
+.G-overflow-auto {
+  overflow: auto;
+}
+
+.G-overflow-hidden {
+  overflow: hidden;
+}
+
+.G-overflow-visible {
+  overflow: visible;
+}
+
+.G-overflow-x-auto {
+  overflow-x: auto;
+}
+
+.G-overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.G-overflow-x-visible {
+  overflow-x: visible;
+}
+
+.G-overflow-y-auto {
+  overflow-y: auto;
+}
+
+.G-overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.G-overflow-y-visible {
+  overflow-y: visible;
+}
+
+.G-display-inline-block {
+  display: inline-block;
+}
+
+.G-display-block {
+  display: block;
+}
+
+.G-display-none {
+  display: none !important;
+}
+
+.G-position-relative {
+  position: relative;
+}
+
+.G-position-absolute {
+  position: absolute;
+}
+
+.G-position-fixed {
+  position: fixed;
+}
+
+.G-text-center {
+  text-align: center;
+}
+
+.G-text-left {
+  text-align: left;
+}
+
+.G-text-right {
+  text-align: right;
+}
+
+.G-fw {
+  font-weight: bold;
+}
+
+.G-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.G-hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.G-error {
+  border-bottom: 1px solid $app-color !important;
+}
+
+.G-opacity-none {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
+
+.G-translate-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.G-disable {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.G-th-text {
+  font-size: $th-font-size !important;
+  font-family: 'Roboto-Medium' !important;
+  color: $gray9 !important;
+}
+
+.G-td-text {
+  margin-bottom: 0 !important;
+  font-size: $td-font-size !important;
+  font-family: 'Roboto-Medium' !important;
+  color: $gray9 !important;
+}
+
+.G-backdrop-transparent {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.G-backdrop {
+  background-color: $black4 !important;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  svg {
+    fill: $white;
+  }
+}

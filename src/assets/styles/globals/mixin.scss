@@ -1,0 +1,113 @@
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin min-width-height($min-width, $min-height) {
+  min-width: $min-width;
+  min-height: $min-height;
+}
+
+@mixin max-width-height($max-width, $max-height) {
+  max-width: $max-width;
+  max-height: $max-height;
+}
+
+@mixin flexAlignJustify($align-items, $justify-content) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+// MEDIA WIDTH
+
+@mixin screen-max-width-420 {
+  @media (max-width: 420px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-460 {
+  @media (max-width: 460px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-766 {
+  @media (max-width: 766px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1200 {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1250 {
+  @media (max-width: 1250px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1300 {
+  @media (max-width: 1300px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1400 {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1500 {
+  @media (max-width: 1500px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1600 {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1650 {
+  @media (max-width: 1650px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1700 {
+  @media (max-width: 1700px) {
+    @content;
+  }
+}
+
+@mixin screen-max-width-1800 {
+  @media (max-width: 1800px) {
+    @content;
+  }
+}
+
+// MEDIA HEIGHT
+@mixin screen-max-height-700 {
+  @media (max-height: 700px) {
+    @content;
+  }
+}
+
+@mixin screen-min-height-750 {
+  @media (min-height: 800px) {
+    @content;
+  }
+}

@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'globals/mixin';
+
+.L-page-not-found-image {
+  @include width-height(300px, 300px);
+  img {
+    @include width-height(100%, 100%);
+  }
+}
+
+.L-not-found-btn {
+  svg {
+    @include width-height(25px, 22px);
+    fill: $blue4;
+  }
+  span {
+    display: block;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+}

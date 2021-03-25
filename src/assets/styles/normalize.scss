@@ -1,0 +1,94 @@
+/* You can add HTML default tag styles */
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+*::-webkit-scrollbar {
+  position: absolute;
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background-color: $black5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $gray5;
+  width: 7px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body {
+  overflow: hidden;
+}
+
+textarea,
+input,
+button,
+pre {
+  font-size: 16px !important;
+  outline: none !important;
+}
+
+textarea:disabled {
+  background-color: $white !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: $gray5;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $white inset;
+}
+
+i[class*='icon'] {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+a,
+button {
+  cursor: pointer;
+}
+a:link,
+a:hover,
+a:visited {
+  color: $black;
+}
+a {
+  text-decoration: none !important;
+  color: $black !important;
+}
+button {
+  border: 0;
+  background-color: transparent;
+}
