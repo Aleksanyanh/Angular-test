@@ -4,4 +4,4 @@ export const FEATURES = 'features';
 
 // SUB PATHS
 export const LOGIN = 'login';
-export const DASHBOARD = 'dashboard';
+export const USERS = 'users';

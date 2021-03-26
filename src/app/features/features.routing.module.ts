@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { FeaturesComponent } from '@app/features/features.component';
-import { FEATURES, DASHBOARD } from '@app/core/constants/path';
+import { FEATURES, USERS } from '@app/core/constants/path';
 
 const routes: Routes = [
   {
@@ -10,13 +10,13 @@ const routes: Routes = [
     component: FeaturesComponent,
     children: [
       {
-        path: DASHBOARD,
+        path: USERS,
         loadChildren: () =>
-          import(`./pages/${DASHBOARD}/${DASHBOARD}.module`).then((m) => m.DashboardModule),
+          import(`./pages/${USERS}/${USERS}.module`).then((m) => m.UsersModule),
       },
       {
         path: '',
-        redirectTo: DASHBOARD,
+        redirectTo: USERS,
         pathMatch: 'full',
       },
     ],
