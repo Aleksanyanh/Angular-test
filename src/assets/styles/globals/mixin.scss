@@ -111,3 +111,62 @@
     @content;
   }
 }
+
+// 1. main background-color for buttons
+// 2. background color for hover buttons
+// 3. main text color
+// 4. text color for hover buttons
+// 5. buttons text size
+// 6. disable buttons background color
+
+@mixin change-color-button(
+  $is-inner-gradient,
+  $bg-color,
+  $hover-bg-color,
+  $text-color,
+  $hover-text-color,
+  $text-size,
+  $disable-color
+) {
+  @if $is-inner-gradient {
+    background: $bg-color;
+  } @else {
+    background-color: $bg-color;
+  }
+  span,
+  p {
+    color: $text-color;
+    font-size: $text-size;
+  }
+  &:hover {
+    @if $is-inner-gradient {
+      background: $bg-color;
+    } @else {
+      background-color: $hover-bg-color;
+    }
+
+    span,
+    p {
+      color: $hover-text-color;
+    }
+  }
+
+  &:before,
+  &:after {
+    display: none !important;
+  }
+
+  &:disabled {
+    background-color: $disable-color;
+    cursor: not-allowed;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+
+  &:disabled:hover {
+    background-color: $disable-color;
+    cursor: not-allowed;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+}

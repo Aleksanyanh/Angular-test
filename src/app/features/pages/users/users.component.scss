@@ -22,3 +22,16 @@
     width: 600px;
   }
 }
+
+.L-users-block::ng-deep {
+  .L-users-table {
+    .mat-form-field-underline {
+      background-color: transparent !important;
+      opacity: 0 !important;
+    }
+
+    .mat-form-field-subscript-wrapper {
+      opacity: 0 !important;
+    }
+  }
+}

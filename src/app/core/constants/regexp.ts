@@ -1,0 +1,15 @@
+export const NUMBER_REGEXP: RegExp = /^[0-9]*$/;
+export const NO_WHITE_SPACE: RegExp  = /^\S*$/;
+export const NATURAL_NUMBER_REGEXP: RegExp = /^[0-9]*[1-9]+$|^[1-9]+[0-9]*$/;
+export const REALNUMBERS_REGEXP: RegExp = /([0-9]+\.[0-9]*)|([0-9]*\.[0-9]+)|([0-9]+)/;
+export const WHOLENUMBERS_REGEXP: RegExp = /^\d+$/;
+export const FOURDIGITS_REGEXP: RegExp = /^\d{4}$/;
+export const DECIMETAL_REGEXP: RegExp = /^[-+]?\d{1,4}(\.\d{1,4})?$/;
+export const LATITUDE_REGEXP: RegExp = /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/;
+export const LONGITUDE_REGEXP: RegExp = /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/;
+export const ONLYDIGITS_REGEXP: RegExp = /\D+/g;
+export const DEBITCREDIT_REGEXP: RegExp = /^[+-SHDC]$/;
+export const PHONENUMBER_REGEXP: RegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+export const EMAIL_REGEXP: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+export const FILE_EXTENSION_REGEXP = /\.(.+)$/;
+export const APP_VERSION_REGEXP = /^\d+(\.\d+)*$/;

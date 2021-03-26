@@ -16,11 +16,11 @@ const defaults: IUsersState = {
 };
 
 @State<IUsersState>({
-  name: 'mediaRoomReport',
+  name: 'users',
   defaults,
 })
 @Injectable()
-export class MediaRoomReportState {
+export class UsersState {
   constructor(private usersRepoService: UsersRepoService, private usersEffectService: UsersEffectService) {}
 
   @Selector()

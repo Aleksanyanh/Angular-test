@@ -1,8 +1,47 @@
-<div class="L-users-section G-pl-20 G-mt-15">
+<div class="L-users-section G-p-20 G-back-gray2 G-h-100-P">
   <div class="L-users-header G-flex-justify-center">
     <h3 class="G-gray7 G-Roboto-Regular">Users page</h3>
   </div>
-  <div class="L-users-body">
-    <router-outlet></router-outlet>
+  <div class="L-users-body G-flex-justify-center G-px-20 G-py-30">
+    <!-- LOADING (START) -->
+    <div *ngIf="!!(Loading$ | async)" class="G-column-center-center G-w-100-P G-h-80vh">
+      <ng-lottie width="120px" height="120px" [options]="loadingLottie"></ng-lottie>
+    </div>
+    <!-- LOADING (END) -->
+
+    <ng-container *ngIf="!(Loading$ | async) && !hasError">
+      <div #pageView class="L-users-block G-w-80-P">
+        <div class="G-flex-center-between" [formGroup]="filterForm" (ngSubmit)="onUpdateFilter()">
+          <mat-form-field appearance="fill" class="G-w-300px">
+            <mat-label>Search</mat-label>
+            <input matInput formControlName="userSearch" [(ngModel)]="filterData.userSearch" />
+            <mat-error *ngIf="filterForm.get('userSearch').errors && filterForm.get('userSearch').touched"
+              >Invalid input</mat-error
+            >
+          </mat-form-field>
+
+          <div class="G-flex-align-center">
+            <div class="G-btn G-btn-blue">
+              <button nz-button type="button" class="G-w-50px G-h-40px" (click)="onResetFilter()">
+                <svg class="G-w-15px G-h-15px">
+                  <use xlink:href="resetFiltericon"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="G-btn G-btn-blue">
+              <button
+                nz-button
+                type="submit"
+                class="G-w-80px G-h-40px G-ml-1"
+                [class.G-disable]="filterForm.invalid"
+                [nzLoading]="!!(Loading$ | async)"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

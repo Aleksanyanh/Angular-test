@@ -1,0 +1,77 @@
+@import 'variables';
+@import 'globals/mixin';
+
+.G-btn {
+  button {
+    width: 100%;
+    max-width: 100%;
+    height: $buttons-height;
+    border-radius: $buttons-border-radius;
+    text-align: center;
+    border: none !important;
+    font-family: Roboto-Medium;
+    @include change-color-button(false, $app-color, $app-color, $white, $white, $buttons-text-size, $gray7);
+  }
+
+  &.G-btn-load {
+    button {
+      width: 120px;
+      text-transform: none;
+      @include change-color-button(false, $blue4, $blue4, $white, $white, 14px, $gray5);
+    }
+  }
+
+  &.G-btn-blue {
+    button {
+      @include change-color-button(false, $blue4, $blue4_rgba, $white, $white, 14px, $gray5);
+      @include flexAlignJustify(center, center);
+    }
+  }
+}
+
+.G-reset-icon {
+  background-color: $blue4;
+  border-radius: 5px;
+  padding: 6px 13px;
+  box-sizing: content-box;
+  width: 14px;
+  height: 14px;
+}
+
+.G-scroll-button {
+  position: absolute;
+  background-color: $app-color;
+  border-radius: 50%;
+  right: 40px;
+  bottom: 40px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: 5px solid $white;
+    transition: 0.4s;
+    border-left: none;
+    border-bottom: none;
+    transform: rotate(135deg) scale(0.35);
+    bottom: 2px;
+  }
+
+  &.G-scroll-top {
+    &:before {
+      transform: rotate(315deg) scale(0.35);
+      bottom: -2px;
+    }
+  }
+
+  &.G-scroll-down {
+    &:before {
+      transform: rotate(135deg) scale(0.35);
+      bottom: 2px;
+    }
+  }
+}
