@@ -1,4 +1,4 @@
-export class UsersReqViewModel {
+export class UsersFilterViewModel {
   userSearch = '';
 }
 
@@ -19,6 +19,7 @@ export interface IUsersResDTO {
 }
 
 export interface IUsersState {
+  filterData: UsersFilterViewModel;
   userList: IUsersResModel[];
   hasNext: boolean;
 }
