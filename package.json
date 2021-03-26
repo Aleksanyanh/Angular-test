@@ -36,6 +36,7 @@
     "lodash": "^4.17.21",
     "lottie-web": "^5.7.7",
     "moment": "^2.29.1",
+    "ng-zorro-antd": "^11.1.0",
     "ngx-lottie": "^6.4.0",
     "node-sass": "^5.0.0",
     "rxjs": "~6.6.6",
