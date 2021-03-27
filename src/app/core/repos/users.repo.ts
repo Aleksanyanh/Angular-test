@@ -9,7 +9,7 @@ import { IUsersResDTO } from '@app/features/models/users.model';
 export class UsersRepoService {
   constructor(private http: HttpClient) {}
 
-  getUsersRepo(params: string) {
+  filterUsersRepo(params: string) {
     const url = `/search/users?${params}`;
     return this.http.get<IUsersResDTO>(url);
   }

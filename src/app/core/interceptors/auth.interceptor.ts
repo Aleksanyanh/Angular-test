@@ -11,12 +11,14 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, skipWhile } from 'rxjs/operators';
 import { HttpStatusCodesEnum } from '@app/core/enums/status-code.enum';
+import { NotificationsService } from '@app/core/services/notification.service';
+import { NotificationEnum } from '@app/core/enums/notification.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private notificationsService: NotificationsService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     req = this.prepareRequest(req);
@@ -32,6 +34,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
   handleErrors(req: HttpRequest<any>, response: HttpErrorResponse) {
     const errors = {};
+    this.notificationsService.notify(
+      NotificationEnum.Error,
+      'HTTP ERROR:',
+      `${response.message} ==> ${response.error.message}`
+    );
+
     switch (response.status) {
       case HttpStatusCodesEnum.BAD_REQUEST:
         for (const [key, value] of Object.entries(response.error.data.errors)) {

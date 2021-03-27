@@ -42,7 +42,7 @@ export class UsersFilterComponent implements OnInit {
     this.filterForm.markAllAsTouched();
 
     if (this.filterForm.valid) {
-      this.store.dispatch(new FilterUsers(this.filterData)).subscribe(this.successResCB, this.errorResCB);
+      this.store.dispatch(new FilterUsers(this.filterData));
     } else {
       this.filterForm.reset();
       this.notificationsService.notify(NotificationEnum.Warning, 'WARNING (Users filter) ====>', 'Form is not valid!');
@@ -63,11 +63,4 @@ export class UsersFilterComponent implements OnInit {
         this.filterData = cloneDeep(data);
       });
   }
-
-  private successResCB = (state: any): void => {};
-
-  private errorResCB = (err: HttpErrorResponse): void => {
-    this.notificationsService.notify(NotificationEnum.Error, 'HTTP ERROR (Users filter) ====>', `${err.message}`);
-    console.log('HTTP ERROR (Users filter) ====>', err.message);
-  };
 }

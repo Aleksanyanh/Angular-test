@@ -5,7 +5,14 @@ import { tap } from 'rxjs/operators';
 import { IUsersResDTO, IUsersState, UsersFilterViewModel } from '@app/features/models/users.model';
 import { UsersRepoService } from '@app/core/repos/users.repo';
 import { UsersEffectService } from '@app/store/effects/users.effect';
-import { FilterUsers, InitUsers, SetCurrentUserImage, ToggleUserImageModal } from '@app/store/actions/users.action';
+import {
+  FilterUsers,
+  InitUsers,
+  LoadUsers,
+  SetCurrentUserImage,
+  ToggleUserImageModal,
+} from '@app/store/actions/users.action';
+import { cloneDeep } from 'lodash';
 
 const defaults: IUsersState = {
   filterData: new UsersFilterViewModel(),
@@ -53,7 +60,7 @@ export class UsersState {
   filterUsers({ patchState }: StateContext<IUsersState>, { filterData }: FilterUsers) {
     const params = this.usersEffectService.filterUsersEffect(filterData);
 
-    return this.usersRepoService.getUsersRepo(params).pipe(
+    return this.usersRepoService.filterUsersRepo(params).pipe(
       tap((response: IUsersResDTO) => {
         patchState({
           userList: response.items,
@@ -64,6 +71,26 @@ export class UsersState {
     );
   }
   // =================================> FILTER LIST (END) =================================>
+
+  // =================================> LOAD DATA (START) =================================>
+  @Action(LoadUsers, { cancelUncompleted: true })
+  loadUsers({ patchState, getState }: StateContext<IUsersState>, { filterData }: LoadUsers) {
+    const state = getState();
+    const _userList = cloneDeep(state.userList);
+
+    const params = this.usersEffectService.filterUsersEffect(filterData);
+    return this.usersRepoService.filterUsersRepo(params).pipe(
+      tap((response: IUsersResDTO) => {
+        const userList = [..._userList, ...response.items];
+
+        patchState({
+          userList,
+          hasNext: !response.incomplete_results,
+        });
+      })
+    );
+  }
+  // =================================> LOAD DATA (END) =================================>
 
   // =================================> TOGGLE ITEM (START) =================================>
   @Action(ToggleUserImageModal)

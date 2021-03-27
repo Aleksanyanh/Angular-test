@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
 import { ActionsExecuting, actionsExecuting } from '@ngxs-labs/actions-executing';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { UsersState } from '@app/store/state/users.state';
-import { FilterUsers, SetCurrentUserImage, ToggleUserImageModal } from '@app/store/actions/users.action';
+import { FilterUsers, LoadUsers, SetCurrentUserImage, ToggleUserImageModal } from '@app/store/actions/users.action';
 import { IUsersResModel, IUsersState, UsersFilterViewModel } from '@app/features/models/users.model';
 import { LOADING_LOTTIE } from '@app/core/constants/image';
 import { cloneDeep } from 'lodash';
 import { FeatureComponentEnum } from '@app/core/enums/component.enum';
+import { SubjectService } from '@app/features/services/subject.service';
 
 @UntilDestroy()
 @Component({
@@ -26,14 +27,14 @@ export class UsersListComponent implements OnInit {
   isPageEmpty = true;
   loadingLottie = LOADING_LOTTIE;
 
-  constructor(private store: Store) {
-    // this.subjectService.loadPageSub.pipe(untilDestroyed(this)).subscribe((componentEnum: FeatureComponentEnum) => {
-    //   if (componentEnum === FeatureComponentEnum.users) {
-    //     this.subjectService.scrollPageSub.next(true);
-    //     this.filterData.paging.skip = this.usersState.users.length;
-    //     this.store.dispatch(new LoadUsers(this.filterData));
-    //   }
-    // });
+  constructor(private store: Store, private subjectService: SubjectService) {
+    this.subjectService.loadPageSub.pipe(untilDestroyed(this)).subscribe((componentEnum: FeatureComponentEnum) => {
+      if (componentEnum === FeatureComponentEnum.users) {
+        // this.subjectService.scrollPageSub.next(true);
+        this.filterData.paging.skip = this.usersState.userList.length;
+        this.store.dispatch(new LoadUsers(this.filterData));
+      }
+    });
   }
 
   onToggleImageModal(bool: boolean, image: string): void {

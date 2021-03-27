@@ -7,6 +7,10 @@ export class FilterUsers {
   static readonly type = '[Users] FilterUsers';
   constructor(public filterData: UsersFilterViewModel) {}
 }
+export class LoadUsers {
+  static readonly type = '[Users] LoadUsers';
+  constructor(public filterData: UsersFilterViewModel) {}
+}
 export class ToggleUserImageModal {
   static readonly type = '[Users] ToggleUserImageModal';
   constructor(public imageModal: boolean) {}
