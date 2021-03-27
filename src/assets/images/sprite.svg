@@ -63,4 +63,11 @@
         <use xlink:href="#close_icon" transform="translate(0 0 17.997 17.969)"/>
     </symbol>
 
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" id="close-white-back">
+        <g transform="translate(-8908 -3288)">
+        <circle cx="12.5" cy="12.5" r="12.5" transform="translate(8908 3288)" fill="#fff"></circle>
+        <path d="M8921.54 3300.5l3.531-3.536a.518.518 0 000-.731l-.3-.31a.518.518 0 00-.731 0l-3.541 3.533-3.535-3.533a.518.518 0 00-.731 0l-.31.31a.518.518 0 000 .731l3.535 3.536-3.536 3.535a.519.519 0 000 .731l.31.31a.518.518 0 00.731 0l3.536-3.535 3.536 3.535a.513.513 0 00.366.151.513.513 0 00.37-.151l.31-.31a.519.519 0 000-.731z" fill="#707070"></path>
+        </g>
+    </symbol>
+
 </svg>

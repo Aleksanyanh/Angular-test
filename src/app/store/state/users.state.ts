@@ -5,12 +5,14 @@ import { tap } from 'rxjs/operators';
 import { IUsersResDTO, IUsersState, UsersFilterViewModel } from '@app/features/models/users.model';
 import { UsersRepoService } from '@app/core/repos/users.repo';
 import { UsersEffectService } from '@app/store/effects/users.effect';
-import { FilterUsers, GetUsers } from '@app/store/actions/users.action';
+import { FilterUsers, InitUsers, SetCurrentUserImage, ToggleUserImageModal } from '@app/store/actions/users.action';
 
 const defaults: IUsersState = {
   filterData: new UsersFilterViewModel(),
   userList: [],
   totalCount: 0,
+  imageModal: false,
+  currentImage: null,
   hasNext: false,
 };
 
@@ -32,16 +34,21 @@ export class UsersState {
     return state.filterData;
   }
 
-  @Action(GetUsers)
-  getUsers({ patchState }: StateContext<IUsersState>) {
+  // =================================> INIT DATA (START) =================================>
+  @Action(InitUsers)
+  initUsers({ patchState }: StateContext<IUsersState>) {
     patchState({
       filterData: new UsersFilterViewModel(),
       userList: [],
       totalCount: 0,
+      imageModal: false,
+      currentImage: null,
       hasNext: false,
     });
   }
+  // =================================> INIT DATA (END) =================================>
 
+  // =================================> FILTER LIST (START) =================================>
   @Action(FilterUsers, { cancelUncompleted: true })
   filterUsers({ patchState }: StateContext<IUsersState>, { filterData }: FilterUsers) {
     const params = this.usersEffectService.filterUsersEffect(filterData);
@@ -56,4 +63,23 @@ export class UsersState {
       })
     );
   }
+  // =================================> FILTER LIST (END) =================================>
+
+  // =================================> TOGGLE ITEM (START) =================================>
+  @Action(ToggleUserImageModal)
+  toggleUserImageModal({ patchState }: StateContext<IUsersState>, { imageModal }: ToggleUserImageModal) {
+    return patchState({
+      imageModal,
+    });
+  }
+  // =================================> TOGGLE ITEM (END) =================================>
+
+  // =================================> SET ITEM (START) =================================>
+  @Action(SetCurrentUserImage)
+  setCurrentUserImage({ patchState }: StateContext<IUsersState>, { currentImage }: SetCurrentUserImage) {
+    return patchState({
+      currentImage,
+    });
+  }
+  // =================================> SET ITEM (END) =================================>
 }

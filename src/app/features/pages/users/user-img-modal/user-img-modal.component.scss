@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'globals/mixin';
+
+.L-media-modal {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0 3px 6px $black2;
+  height: 600px;
+}
+
+.L-media-modal-close {
+  position: absolute;
+  right: -30px;
+  top: -30px;
+  cursor: pointer;
+}

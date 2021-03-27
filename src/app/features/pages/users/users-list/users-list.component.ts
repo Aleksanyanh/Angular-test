@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { ActionsExecuting, actionsExecuting } from '@ngxs-labs/actions-executing';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { UsersState } from '@app/store/state/users.state';
-import { FilterUsers } from '@app/store/actions/users.action';
+import { FilterUsers, SetCurrentUserImage, ToggleUserImageModal } from '@app/store/actions/users.action';
 import { IUsersResModel, IUsersState } from '@app/features/models/users.model';
 import { LOADING_LOTTIE } from '@app/core/constants/image';
 
@@ -31,6 +31,10 @@ export class UsersListComponent implements OnInit {
     //     this.store.dispatch(new LoadUsers(this.filterData));
     //   }
     // });
+  }
+
+  onToggleImageModal(bool: boolean, image: string): void {
+    this.store.dispatch([new SetCurrentUserImage(image), new ToggleUserImageModal(bool)]);
   }
 
   trackByID(_: number, data: IUsersResModel): number {

@@ -1,0 +1,18 @@
+<nz-modal
+  *ngIf="usersState.imageModal"
+  nzClassName="Zorro-modal"
+  [nzClosable]="false"
+  [nzVisible]="usersState.imageModal"
+  [nzFooter]="null"
+>
+  <div
+    class="L-media-modal G-back-black"
+    [ngStyle]="{ 'background-image': 'url(' + usersState.currentImage + ')' }"
+  >
+    <span class="L-media-modal-close" (click)="onToggleLastUploadedImageModal()">
+      <svg class="G-w-30px G-h-30px">
+        <use xlink:href="assets/images/sprite.svg#close-white-back"></use>
+      </svg>
+    </span>
+  </div>
+</nz-modal>

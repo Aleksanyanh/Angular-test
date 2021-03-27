@@ -34,7 +34,11 @@
               <p class="G-cursor-copy G-hover-scale-1" [cdkCopyToClipboard]="item.id">{{ item.id }}</p>
             </div>
             <div class="G-custom-table-td">
-              <div class="G-image-thumb" [ngStyle]="{ 'background-image': 'url(' + item.avatar_url + ')' }"></div>
+              <div
+                (click)="onToggleImageModal(true, item.avatar_url)"
+                class="G-image-thumb G-cursor"
+                [ngStyle]="{ 'background-image': 'url(' + item.avatar_url + ')' }"
+              ></div>
             </div>
             <div class="G-custom-table-td">
               <p>{{ item.login }}</p>
@@ -68,3 +72,5 @@
     <!-- EMPTY SPACE (END) -->
   </div>
 </ng-container>
+
+<app-user-img-modal [usersState]="usersState"></app-user-img-modal>

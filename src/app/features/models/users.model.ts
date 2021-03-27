@@ -23,5 +23,7 @@ export interface IUsersState {
   filterData: UsersFilterViewModel;
   userList: IUsersResModel[];
   totalCount: number;
+  imageModal: boolean;
+  currentImage: string;
   hasNext: boolean;
 }

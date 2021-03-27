@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
 import { Store } from '@ngxs/store';
 import { NotificationsService } from '@app/core/services/notification.service';
 import { NotificationEnum } from '@app/core/enums/notification.enum';
-import { FilterUsers, GetUsers } from '@app/store/actions/users.action';
+import { FilterUsers, InitUsers } from '@app/store/actions/users.action';
 import { UsersFilterViewModel } from '@app/features/models/users.model';
 import { UsersState } from '@app/store/state/users.state';
 import { NO_WHITE_SPACE } from '@app/core/constants/regexp';
@@ -52,7 +52,7 @@ export class UsersFilterComponent implements OnInit {
   onResetFilter(): void {
     // this.subjectService.scrollPageSub.next(false);
     this.filterForm.reset();
-    this.store.dispatch(new GetUsers());
+    this.store.dispatch(new InitUsers());
   }
 
   ngOnInit(): void {
