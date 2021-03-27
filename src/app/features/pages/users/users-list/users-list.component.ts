@@ -8,7 +8,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { UsersState } from '@app/store/state/users.state';
 import { FilterUsers, LoadUsers, SetCurrentUserImage, ToggleUserImageModal } from '@app/store/actions/users.action';
 import { IUsersResModel, IUsersState, UsersFilterViewModel } from '@app/features/models/users.model';
-import { LOADING_LOTTIE } from '@app/core/constants/image';
+import { LOADING_LOTTIE, SAVE_LOTTIE } from '@app/core/constants/image';
 import { cloneDeep } from 'lodash';
 import { FeatureComponentEnum } from '@app/core/enums/component.enum';
 import { SubjectService } from '@app/features/services/subject.service';
@@ -26,6 +26,8 @@ export class UsersListComponent implements OnInit {
   FeatureComponentEnum = FeatureComponentEnum;
   isPageEmpty = true;
   loadingLottie = LOADING_LOTTIE;
+  saveLottie = null;
+  currentUserId = null;
 
   constructor(private store: Store, private subjectService: SubjectService) {
     this.subjectService.loadPageSub.pipe(untilDestroyed(this)).subscribe((componentEnum: FeatureComponentEnum) => {
@@ -39,6 +41,14 @@ export class UsersListComponent implements OnInit {
 
   onToggleImageModal(bool: boolean, image: string): void {
     this.store.dispatch([new SetCurrentUserImage(image), new ToggleUserImageModal(bool)]);
+  }
+
+  onCopyUserId(id: number): void {
+    this.currentUserId = id;
+    this.saveLottie = SAVE_LOTTIE;
+    setTimeout(() => {
+      this.saveLottie = null;
+    }, 1500);
   }
 
   trackByID(_: number, data: IUsersResModel): number {

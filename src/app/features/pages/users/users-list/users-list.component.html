@@ -31,7 +31,18 @@
           </div>
           <div class="G-custom-table-tr" *ngFor="let item of usersState.userList; trackBy: trackByID">
             <div class="G-custom-table-td">
-              <p class="G-cursor-copy G-hover-scale-1" [cdkCopyToClipboard]="item.id">{{ item.id }}</p>
+              <div class="G-flex-align-center">
+                <p class="G-cursor-copy G-hover-scale-1" [cdkCopyToClipboard]="item.id" (click)="onCopyUserId(item.id)">
+                  {{ item.id }}
+                </p>
+                <ng-lottie
+                  *ngIf="currentUserId === item.id"
+                  class="G-ml-10"
+                  width="30px"
+                  height="30px"
+                  [options]="saveLottie"
+                ></ng-lottie>
+              </div>
             </div>
             <div class="G-custom-table-td">
               <div
