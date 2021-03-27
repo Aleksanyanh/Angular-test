@@ -233,3 +233,14 @@
   background-size: cover;
   overflow: hidden;
 }
+
+.G-copy-id {
+  position: relative;
+  cursor: copy;
+
+  .G-save-lottie {
+    position: absolute;
+    top: -5px;
+    right: -35px;
+  }
+}

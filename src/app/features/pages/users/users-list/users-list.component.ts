@@ -12,6 +12,7 @@ import { LOADING_LOTTIE, SAVE_LOTTIE } from '@app/core/constants/image';
 import { cloneDeep } from 'lodash';
 import { FeatureComponentEnum } from '@app/core/enums/component.enum';
 import { SubjectService } from '@app/features/services/subject.service';
+import { FeaturesService } from '@app/features/services/features.service';
 
 @UntilDestroy()
 @Component({
@@ -26,10 +27,8 @@ export class UsersListComponent implements OnInit {
   FeatureComponentEnum = FeatureComponentEnum;
   isPageEmpty = true;
   loadingLottie = LOADING_LOTTIE;
-  saveLottie = null;
-  currentUserId = null;
 
-  constructor(private store: Store, private subjectService: SubjectService) {
+  constructor(private store: Store, private subjectService: SubjectService, public featuresService: FeaturesService) {
     this.subjectService.loadPageSub.pipe(untilDestroyed(this)).subscribe((componentEnum: FeatureComponentEnum) => {
       if (componentEnum === FeatureComponentEnum.users) {
         // this.subjectService.scrollPageSub.next(true);
@@ -41,14 +40,6 @@ export class UsersListComponent implements OnInit {
 
   onToggleImageModal(bool: boolean, image: string): void {
     this.store.dispatch([new SetCurrentUserImage(image), new ToggleUserImageModal(bool)]);
-  }
-
-  onCopyUserId(id: number): void {
-    this.currentUserId = id;
-    this.saveLottie = SAVE_LOTTIE;
-    setTimeout(() => {
-      this.saveLottie = null;
-    }, 1500);
   }
 
   trackByID(_: number, data: IUsersResModel): number {
