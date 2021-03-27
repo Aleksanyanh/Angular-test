@@ -55,6 +55,6 @@ In the app is used reactive forms appraoch for better validation and scalabilty 
 
 ## Image
 
-In any cases is preferable to use the image as svg format and also the `sprite` method. We get the svg image with id. The usage is:
+In any cases is preferable to use the image as svg format in point of view the performance and better view. It is used also the `sprite` method. We get the svg image with id. The usage is:
 `<svg><use xlink:href="assets/images/sprite.svg#empty-box-open"></use></svg>`
 here is the sprite svg generator link `https://svgsprit.es/`
