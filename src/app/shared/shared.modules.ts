@@ -11,12 +11,13 @@ import { NgZorroModule } from '@app/shared/ng-zorro-module';
 
 import player from 'lottie-web';
 import { FilterWrapperComponent } from '@app/shared/components/filter-wrapper/filter-wrapper.component';
+import { LoadMoreComponent } from '@app/shared/components/load-more/load-more.component';
 
 export function playerFactory() {
   return player;
 }
 
-const components = [FilterWrapperComponent];
+const components = [FilterWrapperComponent, LoadMoreComponent];
 
 const modules = [
   HttpClientModule,

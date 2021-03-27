@@ -20,7 +20,7 @@ import { NO_WHITE_SPACE } from '@app/core/constants/regexp';
   styleUrls: ['./users-filter.component.scss'],
 })
 export class UsersFilterComponent implements OnInit {
-  filterData = new UsersFilterViewModel();
+  filterData: UsersFilterViewModel;
 
   filterForm: FormGroup = this.fb.group({
     userSearch: [

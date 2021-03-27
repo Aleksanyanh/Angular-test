@@ -58,7 +58,7 @@ export class UsersState {
         patchState({
           userList: response.items,
           totalCount: response.total_count,
-          hasNext: response.incomplete_results,
+          hasNext: !response.incomplete_results,
         });
       })
     );

@@ -1,0 +1,10 @@
+<div class="G-flex-align-center">
+  <div class="G-btn G-btn-load">
+    <button nz-button [disabled]="!hasNext" [nzLoading]="!!(Loading$ | async)" (click)="onLoadMore()">Load more</button>
+  </div>
+  <mat-form-field class="G-w-85px G-ml-20">
+    <mat-select [value]="paging.selectedOption" (selectionChange)="onChangeLoadSize($event)">
+      <mat-option *ngFor="let option of paging.options" [value]="option">{{ option }} / load</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

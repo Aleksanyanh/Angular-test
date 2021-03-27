@@ -50,13 +50,13 @@
           </div>
         </div>
         <div class="G-flex-center-center G-w-100-P G-load-more-box" *ngIf="usersState.hasNext">
-          <!-- <app-load-more
-              [hasNext]="userState.hasNext"
-              [paging]="filterData.paging"
-              [componentEnum]="FeatureComponentEnum.user"
-              [Loading$]="LoadUser$"
-              (changeLoadSize)="filterData.paging.selectedOption = $event"
-            ></app-load-more> -->
+          <app-load-more
+            [hasNext]="usersState.hasNext"
+            [paging]="filterData.paging"
+            [componentEnum]="FeatureComponentEnum.users"
+            [Loading$]="Loading$"
+            (changeLoadSize)="filterData.paging.selectedOption = $event"
+          ></app-load-more>
         </div>
       </div>
     </ng-container>

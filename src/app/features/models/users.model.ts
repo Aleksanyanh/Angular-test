@@ -1,4 +1,10 @@
+import { PagingViewModel } from "@app/core/models/page.model";
+
 export class UsersFilterViewModel {
+  paging = new PagingViewModel({
+    selectedOption: 10,
+    options: [10, 20, 30, 50],
+  });
   userSearch = '';
 }
 
