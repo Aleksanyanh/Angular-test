@@ -10,7 +10,7 @@ export class UsersEffectService {
   filterUsersEffect(data: UsersFilterViewModel): string {
     let userSearch = null;
 
-    if (data.userSearch.trim()) {
+    if (data.userSearch) {
       userSearch = data.userSearch;
     }
 

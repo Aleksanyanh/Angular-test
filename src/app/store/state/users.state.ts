@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 
 import { tap } from 'rxjs/operators';
-import { IResponseData } from '@app/core/models/response.model';
-
 import { IUsersResDTO, IUsersState, UsersFilterViewModel } from '@app/features/models/users.model';
 import { UsersRepoService } from '@app/core/repos/users.repo';
 import { UsersEffectService } from '@app/store/effects/users.effect';
-import { GetUsers } from '@app/store/actions/users.action';
+import { FilterUsers, GetUsers } from '@app/store/actions/users.action';
 
 const defaults: IUsersState = {
   filterData: new UsersFilterViewModel(),
@@ -35,7 +33,17 @@ export class UsersState {
   }
 
   @Action(GetUsers)
-  getUsers({ patchState }: StateContext<IUsersState>, { filterData }: GetUsers) {
+  getUsers({ patchState }: StateContext<IUsersState>) {
+    patchState({
+      filterData: new UsersFilterViewModel(),
+      userList: [],
+      totalCount: 0,
+      hasNext: false,
+    });
+  }
+
+  @Action(FilterUsers, { cancelUncompleted: true })
+  filterUsers({ patchState }: StateContext<IUsersState>, { filterData }: FilterUsers) {
     const params = this.usersEffectService.filterUsersEffect(filterData);
 
     return this.usersRepoService.getUsersRepo(params).pipe(

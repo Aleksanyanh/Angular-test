@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { ActionsExecuting, actionsExecuting } from '@ngxs-labs/actions-executing';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { UsersState } from '@app/store/state/users.state';
-import { GetUsers } from '@app/store/actions/users.action';
+import { FilterUsers } from '@app/store/actions/users.action';
 import { IUsersResModel, IUsersState } from '@app/features/models/users.model';
 import { LOADING_LOTTIE } from '@app/core/constants/image';
 
@@ -17,11 +17,10 @@ import { LOADING_LOTTIE } from '@app/core/constants/image';
   styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-  @Select(actionsExecuting([GetUsers])) Loading$: Observable<ActionsExecuting>;
+  @Select(actionsExecuting([FilterUsers])) Loading$: Observable<ActionsExecuting>;
 
   usersState: IUsersState;
   isPageEmpty = true;
-  hasError = false;
   loadingLottie = LOADING_LOTTIE;
 
   constructor(private store: Store) {

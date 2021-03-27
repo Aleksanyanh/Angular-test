@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
 import { Store } from '@ngxs/store';
 import { NotificationsService } from '@app/core/services/notification.service';
 import { NotificationEnum } from '@app/core/enums/notification.enum';
-import { GetUsers } from '@app/store/actions/users.action';
+import { FilterUsers, GetUsers } from '@app/store/actions/users.action';
 import { UsersFilterViewModel } from '@app/features/models/users.model';
 import { UsersState } from '@app/store/state/users.state';
 import { NO_WHITE_SPACE } from '@app/core/constants/regexp';
@@ -42,7 +42,7 @@ export class UsersFilterComponent implements OnInit {
     this.filterForm.markAllAsTouched();
 
     if (this.filterForm.valid) {
-      this.store.dispatch(new GetUsers(this.filterData)).subscribe(this.successResCB, this.errorResCB);
+      this.store.dispatch(new FilterUsers(this.filterData)).subscribe(this.successResCB, this.errorResCB);
     } else {
       this.filterForm.reset();
       this.notificationsService.notify(NotificationEnum.Warning, 'WARNING (Users filter) ====>', 'Form is not valid!');
@@ -52,7 +52,7 @@ export class UsersFilterComponent implements OnInit {
   onResetFilter(): void {
     // this.subjectService.scrollPageSub.next(false);
     this.filterForm.reset();
-    this.store.dispatch(new GetUsers(this.filterData)).subscribe(this.successResCB, this.errorResCB);
+    this.store.dispatch(new GetUsers());
   }
 
   ngOnInit(): void {
@@ -64,19 +64,9 @@ export class UsersFilterComponent implements OnInit {
       });
   }
 
-  private successResCB = (state: any): void => {
-    // this.subjectService.hasHttpErrorSub.next(false);
-
-    if (state.users.userList.length) {
-      // this.subjectService.isPageEmptySub.next(false);
-    } else {
-      // this.subjectService.isPageEmptySub.next(true);
-    }
-  };
+  private successResCB = (state: any): void => {};
 
   private errorResCB = (err: HttpErrorResponse): void => {
-    // this.subjectService.hasHttpErrorSub.next(true);
-
     this.notificationsService.notify(NotificationEnum.Error, 'HTTP ERROR (Users filter) ====>', `${err.message}`);
     console.log('HTTP ERROR (Users filter) ====>', err.message);
   };
