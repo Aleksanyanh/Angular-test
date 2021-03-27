@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'globals/mixin';
+
+.L-user-filter {
+  width: 100%;
+  .L-input-field {
+    width: 200px !important;
+  }
+}

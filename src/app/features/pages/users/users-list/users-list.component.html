@@ -1,0 +1,66 @@
+<!-- LOADING (START) -->
+<div *ngIf="!!(Loading$ | async)" class="G-column-center-center G-w-100-P G-h-70vh">
+  <ng-lottie width="120px" height="120px" [options]="loadingLottie"></ng-lottie>
+</div>
+<!-- LOADING (END) -->
+
+<ng-container *ngIf="!(Loading$ | async) && !hasError">
+  <div class="L-users-block G-w-95vw">
+    <!-- USERS LIST (START) -->
+    <ng-container *ngIf="!isPageEmpty">
+      <div class="G-custom-table">
+        <div class="G-custom-table-body">
+          <div class="G-custom-table-tr">
+            <div class="G-custom-table-th">
+              <p>Id</p>
+            </div>
+            <div class="G-custom-table-th">
+              <p>Avatar</p>
+            </div>
+            <div class="G-custom-table-th">
+              <p>Login</p>
+            </div>
+            <div class="G-custom-table-th">
+              <p>Type</p>
+            </div>
+            <div class="G-custom-table-th"></div>
+          </div>
+          <div class="G-custom-table-tr" *ngFor="let item of usersState.userList; trackBy: trackByID">
+            <div class="G-custom-table-td">
+              <p class="G-cursor-copy G-hover-scale-1" [cdkCopyToClipboard]="item.id">{{ item.id }}</p>
+            </div>
+            <div class="G-custom-table-td">
+              <div class="G-image-thumb" [ngStyle]="{ 'background-image': 'url(' + item.avatar_url + ')' }"></div>
+            </div>
+            <div class="G-custom-table-td">
+              <p>{{ item.login }}</p>
+            </div>
+            <div class="G-custom-table-td">
+              <p>{{ item.type }}</p>
+            </div>
+            <div class="G-custom-table-td"></div>
+          </div>
+        </div>
+        <div class="G-flex-center-center G-w-100-P G-load-more-box" *ngIf="usersState.hasNext">
+          <!-- <app-load-more
+              [hasNext]="userState.hasNext"
+              [paging]="filterData.paging"
+              [componentEnum]="FeatureComponentEnum.user"
+              [Loading$]="LoadUser$"
+              (changeLoadSize)="filterData.paging.selectedOption = $event"
+            ></app-load-more> -->
+        </div>
+      </div>
+    </ng-container>
+    <!-- USERS LIST (END) -->
+
+    <!-- EMPTY SPACE (START) -->
+    <div *ngIf="!(Loading$ | async) && isPageEmpty" class="G-column-center-center G-w-100-P G-h-70vh">
+      <svg class="G-w-80px G-h-80px">
+        <use xlink:href="assets/images/sprite.svg#empty-box-open"></use>
+      </svg>
+      <p class="G-fs-20 G-gray6">Nothing here!</p>
+    </div>
+    <!-- EMPTY SPACE (END) -->
+  </div>
+</ng-container>

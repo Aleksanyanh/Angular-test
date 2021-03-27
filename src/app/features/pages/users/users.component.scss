@@ -10,37 +10,4 @@
   .L-users-body {
     width: 600px;
   }
-
-  .L-user-filter {
-    .L-input-field {
-      width: 200px !important;
-    }
-  }
-}
-
-.G-custom-table-td,
-.G-custom-table-th {
-  p {
-    margin-bottom: 0 !important;
-  }
-
-  &:first-child {
-    width: 15%;
-    min-width: 150px;
-  }
-
-  &:nth-child(2) {
-    width: 15%;
-    min-width: 150px;
-  }
-
-  &:nth-child(3),
-  &:nth-child(4) {
-    width: 20%;
-    min-width: 200px;
-  }
-
-  &:nth-child(5) {
-    width: 50%;
-  }
 }

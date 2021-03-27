@@ -1,0 +1,16 @@
+<div class="L-filter-section">
+  <div class="L-filter-header G-flex-align-center G-flex-justify-between">
+    <div class="L-filter-title G-cursor G-flex-align-center" (click)="onOpenFilter()">
+      <p class="G-mb-0 G-fs-20 G-gray9 G-Roboto-Medium">Filters</p>
+      <svg class="G-w-16px G-h-16px G-ml-10">
+        <use xlink:href="assets/images/sprite.svg#filter-icon"></use>
+      </svg>
+    </div>
+    <svg class="G-w-14px G-h-14px G-cursor" [ngClass]="!isOpenFilter ? 'L-show-close' : ''" (click)="onCloseFilter()">
+      <use xlink:href="assets/images/sprite.svg#close-icon"></use>
+    </svg>
+  </div>
+  <div class="L-filter-body G-mt-25 G-mb-20" [ngClass]="isOpenFilter ? 'L-open-filter' : ''">
+    <ng-content></ng-content>
+  </div>
+</div>

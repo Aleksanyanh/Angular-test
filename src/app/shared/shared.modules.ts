@@ -10,10 +10,13 @@ import { AngularMaterialModule } from '@app/shared/angular-material.module';
 import { NgZorroModule } from '@app/shared/ng-zorro-module';
 
 import player from 'lottie-web';
+import { FilterWrapperComponent } from '@app/shared/components/filter-wrapper/filter-wrapper.component';
 
 export function playerFactory() {
   return player;
 }
+
+const components = [FilterWrapperComponent];
 
 const modules = [
   HttpClientModule,
@@ -27,9 +30,9 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: components,
   imports: [...modules, LottieModule.forRoot({ player: playerFactory })],
-  exports: [...modules, LottieModule],
+  exports: [...components, ...modules, LottieModule],
   providers: [],
 })
 export class SharedModule {}

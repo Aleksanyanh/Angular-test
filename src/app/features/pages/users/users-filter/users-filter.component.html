@@ -1,0 +1,34 @@
+<app-filter-wrapper>
+  <div class="L-user-filter G-p-20 G-mb-30" [formGroup]="filterForm">
+    <div class="L-input-field G-w-300px">
+      <mat-form-field class="G-w-100-P">
+        <mat-label>Search</mat-label>
+        <input matInput formControlName="userSearch" [(ngModel)]="filterData.userSearch" />
+        <mat-error *ngIf="filterForm.get('userSearch').errors && filterForm.get('userSearch').touched"
+          >Invalid input</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <div class="G-flex-center-end">
+      <div class="G-btn G-btn-blue">
+        <button nz-button class="G-w-50px G-h-40px" (click)="onResetFilter()">
+          <svg class="G-w-15px G-h-15px">
+            <use xlink:href="assets/images/sprite.svg#reset-filter-icon"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="G-btn G-btn-blue">
+        <button
+          nz-button
+          type="submit"
+          class="G-w-80px G-h-40px G-ml-1"
+          [class.G-disable]="filterForm.invalid"
+          (click)="onUpdateFilter()"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</app-filter-wrapper>

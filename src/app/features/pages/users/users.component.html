@@ -1,121 +1,22 @@
-<div class="G-page">
+<div class="G-page" #pageView>
   <div class="L-users-section">
-    <div class="L-users-header G-flex-justify-center">
-      <h3 class="G-gray7 G-fs-22 G-Roboto-Regular">Users page</h3>
+    <div class="L-users-header">
+      <div class="G-flex-justify-center G-mb-20">
+        <h3 class="G-gray7 G-fs-22 G-Roboto-Regular">Users page</h3>
+      </div>
+      <app-users-filter></app-users-filter>
     </div>
     <div class="L-users-body G-flex-justify-center G-px-20 G-py-30">
-      <!-- LOADING (START) -->
-      <div *ngIf="!!(Loading$ | async)" class="G-column-center-center G-w-100-P G-h-70vh">
-        <ng-lottie width="120px" height="120px" [options]="loadingLottie"></ng-lottie>
-      </div>
-      <!-- LOADING (END) -->
-
-      <ng-container *ngIf="!(Loading$ | async) && !hasError">
-        <div #pageView class="L-users-block G-w-80-P">
-          <!-- USERS FILTER (START) -->
-          <div class="L-user-filter G-flex-center-between G-mb-30" [formGroup]="filterForm">
-            <div class="L-input-field G-w-300px">
-              <mat-form-field appearance="fill" class="G-w-100-P">
-                <mat-label>Search</mat-label>
-                <input matInput formControlName="userSearch" [(ngModel)]="filterData.userSearch" />
-                <mat-error *ngIf="filterForm.get('userSearch').errors && filterForm.get('userSearch').touched"
-                  >Invalid input</mat-error
-                >
-              </mat-form-field>
-            </div>
-
-            <div class="G-flex-align-center">
-              <div class="G-btn G-btn-blue">
-                <button nz-button class="G-w-50px G-h-40px" (click)="onResetFilter()">
-                  <svg class="G-w-15px G-h-15px">
-                    <use xlink:href="assets/images/sprite.svg#reset-filter-icon"></use>
-                  </svg>
-                </button>
-              </div>
-              <div class="G-btn G-btn-blue">
-                <button
-                  nz-button
-                  type="submit"
-                  class="G-w-80px G-h-40px G-ml-1"
-                  [class.G-disable]="filterForm.invalid"
-                  [nzLoading]="!!(Loading$ | async)"
-                  (click)="onUpdateFilter()"
-                >
-                  Save
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- USERS FILTER (END) -->
-
-          <!-- USERS LIST (START) -->
-          <ng-container *ngIf="!isPageEmpty">
-            <div class="G-custom-table">
-              <div class="G-custom-table-body">
-                <div class="G-custom-table-tr">
-                  <div class="G-custom-table-th">
-                    <p>Id</p>
-                  </div>
-                  <div class="G-custom-table-th">
-                    <p>Avatar</p>
-                  </div>
-                  <div class="G-custom-table-th">
-                    <p>Login</p>
-                  </div>
-                  <div class="G-custom-table-th">
-                    <p>Type</p>
-                  </div>
-                  <div class="G-custom-table-th"></div>
-                </div>
-                <div class="G-custom-table-tr" *ngFor="let item of usersState.userList; trackBy: trackByID">
-                  <div class="G-custom-table-td">
-                    <p class="G-cursor-copy G-hover-scale-1" [cdkCopyToClipboard]="item.id">{{ item.id }}</p>
-                  </div>
-                  <div class="G-custom-table-td">
-                    <div class="G-image-thumb" [ngStyle]="{ 'background-image': 'url(' + item.avatar_url + ')' }"></div>
-                  </div>
-                  <div class="G-custom-table-td">
-                    <p>{{ item.login }}</p>
-                  </div>
-                  <div class="G-custom-table-td">
-                    <p>{{ item.type }}</p>
-                  </div>
-                  <div class="G-custom-table-td"></div>
-                </div>
-              </div>
-              <div class="G-flex-center-center G-w-100-P G-load-more-box" *ngIf="usersState.hasNext">
-                <!-- <app-load-more
-                  [hasNext]="userState.hasNext"
-                  [paging]="filterData.paging"
-                  [componentEnum]="FeatureComponentEnum.user"
-                  [Loading$]="LoadUser$"
-                  (changeLoadSize)="filterData.paging.selectedOption = $event"
-                ></app-load-more> -->
-              </div>
-            </div>
-          </ng-container>
-          <!-- USERS LIST (END) -->
-
-          <!-- EMPTY SPACE (START) -->
-          <div *ngIf="!(Loading$ | async) && isPageEmpty" class="G-column-center-center G-w-100-P G-h-70vh">
-            <svg class="G-w-80px G-h-80px">
-              <use xlink:href="assets/images/sprite.svg#empty-box-open"></use>
-            </svg>
-            <p class="G-fs-20 G-gray6">Nothing here!</p>
-          </div>
-          <!-- EMPTY SPACE (END) -->
-          <!-- 
-          <div
-            *ngIf="scrollButtonState"
-            class="G-scroll-button"
-            [ngClass]="{
-              'G-scroll-top': scrollOptions.block === 'start',
-              'G-scroll-down': scrollOptions.block === 'end'
-            }"
-            (click)="onScrollDown()"
-          ></div> -->
-        </div>
-      </ng-container>
+      <app-users-list></app-users-list>
     </div>
   </div>
+  <!-- <div
+    *ngIf="scrollButtonState"
+    class="G-scroll-button"
+    [ngClass]="{
+      'G-scroll-top': this.scrollOptions.block === 'start',
+      'G-scroll-down': this.scrollOptions.block === 'end'
+    }"
+    (click)="onScrollDown()"
+  ></div> -->
 </div>

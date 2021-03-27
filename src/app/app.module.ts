@@ -7,10 +7,11 @@ import { AppRoutingModule } from '@app/routing/routing.module';
 import { CoreModule } from '@app/core/core.module';
 import { SharedModule } from '@app/shared/shared.modules';
 import { StoreModule } from '@app/store/store.module';
+import { NotFoundComponent } from '@app/shared/components/not-found/not-found.component';
 
 @NgModule({
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, CoreModule, SharedModule, StoreModule],
-  declarations: [AppComponent],
+  declarations: [AppComponent, NotFoundComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

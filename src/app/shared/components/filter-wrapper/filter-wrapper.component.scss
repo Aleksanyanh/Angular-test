@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'globals/mixin';
+
+.L-filter-section {
+  .L-filter-header {
+    .L-show-close {
+      transition: 0.6s;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .L-filter-body {
+    overflow: hidden;
+    max-height: 0;
+    box-shadow: 0px 10px 25px $black2;
+    border-radius: 8px;
+    transition: 0.6s;
+    opacity: 0;
+    visibility: hidden;
+
+    &.L-open-filter {
+      opacity: 1;
+      visibility: visible;
+      max-height: 200px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+  }
+}
