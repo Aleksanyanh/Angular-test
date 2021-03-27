@@ -3,6 +3,10 @@
 
 .L-user-filter {
   width: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .L-input-field {
     width: 200px !important;
   }

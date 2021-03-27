@@ -8,6 +8,10 @@
   <div class="L-users-block G-w-95vw">
     <!-- USERS LIST (START) -->
     <ng-container *ngIf="!isPageEmpty">
+      <div class="G-flex-align-center G-mb-20">
+        <h3 class="G-fs-20 G-gray9 G-mr-10 G-Roboto-Medium G-mb-0">Total users:</h3>
+        <p class="G-ml-5 G-mb-0 G-fs-18 G-blue4 G-Roboto-Medium">{{ usersState.totalCount }}</p>
+      </div>
       <div class="G-custom-table">
         <div class="G-custom-table-body">
           <div class="G-custom-table-tr">
