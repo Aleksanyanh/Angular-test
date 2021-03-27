@@ -15,4 +15,24 @@
         <use xlink:href="#arr-back" transform="translate(0 0 25.656 22.003)"/>
     </symbol>
 
+    <symbol viewBox="0 0 22 22" id="reset-filter-icon" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <g id="reset_filter">
+                <path class="a" style="fill: #fff" d="M5.238,47.906H0V42.668H1.048v4.19H5.238Zm0,0"
+                      transform="translate(0 -40.573)"/>
+                <path class="a" style="fill: #fff"
+                      d="M11,22A11.016,11.016,0,0,1,0,11H1.048A9.957,9.957,0,1,0,3.863,4.066L.9,7.17l-.759-.72L3.1,3.339A11,11,0,1,1,11,22Zm0,0"
+                      transform="translate(0 0)"/>
+                <path class="a" style="fill: #fff"
+                      d="M153,156.665A3.667,3.667,0,1,1,156.665,153,3.669,3.669,0,0,1,153,156.665Zm0-6.286A2.619,2.619,0,1,0,155.618,153,2.618,2.618,0,0,0,153,150.38Zm0,0"
+                      transform="translate(-141.999 -141.999)"/>
+            </g>
+        </defs>
+        <use xlink:href="#reset_filter" transform="translate(0 0 22 22)"/>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 100.63" id="empty-box-open">
+        <path d="M129.915 30.509l-6.582-28.031a3.213 3.213 0 00-4.555-2.143L95.9 11.686H34.105L11.224.335a3.213 3.213 0 00-4.555 2.143L.086 30.509a3.213 3.213 0 001.7 3.611l21.929 10.894v52.4a3.213 3.213 0 003.212 3.212h76.14a3.213 3.213 0 003.212-3.212v-52.4l21.937-10.9a3.213 3.213 0 001.699-3.605zM77.9 60.154H52.095a3.213 3.213 0 010-6.425H77.9a3.213 3.213 0 110 6.425zM30.956 39.811l4.957-21.7h58.169l4.957 21.7z" fill="#5c659d"></path>
+    </symbol>
+
 </svg>

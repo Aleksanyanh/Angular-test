@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { IResponseData } from '@app/core/models/response.model';
 import { IUsersResDTO } from '@app/features/models/users.model';
 
 @Injectable({
@@ -12,6 +11,6 @@ export class UsersRepoService {
 
   getUsersRepo(params: string) {
     const url = `/search/users?${params}`;
-    return this.http.get<IResponseData<IUsersResDTO>>(url);
+    return this.http.get<IUsersResDTO>(url);
   }
 }

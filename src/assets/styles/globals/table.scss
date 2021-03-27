@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'globals/mixin';
+
+.G-custom-table {
+  .G-custom-table-body {
+    overflow-x: auto;
+  }
+
+  .G-custom-table-tr {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $gray3;
+
+    &:hover {
+      .G-custom-table-td {
+        background-color: $blue5_rgba;
+      }
+    }
+
+    .G-custom-table-td,
+    .G-custom-table-th {
+      max-width: 100%;
+      width: 100%;
+      padding: 10px 15px;
+      transition: 0.3s;
+      height: 62px;
+      display: flex;
+      align-items: center;
+    }
+
+    .G-custom-table-th {
+      background-color: transparent;
+      font-family: 'Poppins-SemiBold';
+      height: 40px;
+    }
+
+    .G-custom-table-td {
+      font-family: 'Poppins-Medium';
+    }
+  }
+}

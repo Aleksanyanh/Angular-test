@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { createParams } from '@app/core/utils/params.util';
-import { UsersFilterViewModel } from '@app/features/models/users.model';
+import { IUsersReqDTO, UsersFilterViewModel } from '@app/features/models/users.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +14,8 @@ export class UsersEffectService {
       userSearch = data.userSearch;
     }
 
-    const reqData = {
-      userSearch,
+    const reqData: IUsersReqDTO = {
+      q: userSearch,
     };
 
     return createParams(reqData);

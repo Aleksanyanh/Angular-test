@@ -6,10 +6,13 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 import { NgxsActionsExecutingModule } from '@ngxs-labs/actions-executing';
 import { environment } from '@environments/environment';
+import { UsersState } from '@app/store/state/users.state';
+
+const states = [UsersState];
 
 @NgModule({
   imports: [
-    NgxsModule.forRoot([], {
+    NgxsModule.forRoot(states, {
       developmentMode: !environment.production,
     }),
 

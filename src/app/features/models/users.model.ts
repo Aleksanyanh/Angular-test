@@ -2,24 +2,26 @@ export class UsersFilterViewModel {
   userSearch = '';
 }
 
+export interface IUsersReqDTO {
+  q: string;
+}
+
 export interface IUsersResModel {
-  id: string;
+  id: number;
   avatar_url: string;
   login: string;
   type: string;
 }
 
-export interface IUsersReqDTO {
-  q: string;
-}
-
 export interface IUsersResDTO {
   items: IUsersResModel[];
-  hasNext: boolean;
+  total_count: number;
+  incomplete_results: boolean;
 }
 
 export interface IUsersState {
   filterData: UsersFilterViewModel;
   userList: IUsersResModel[];
+  totalCount: number;
   hasNext: boolean;
 }

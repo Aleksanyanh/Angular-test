@@ -12,6 +12,7 @@ import { GetUsers } from '@app/store/actions/users.action';
 const defaults: IUsersState = {
   filterData: new UsersFilterViewModel(),
   userList: [],
+  totalCount: 0,
   hasNext: false,
 };
 
@@ -38,10 +39,11 @@ export class UsersState {
     const params = this.usersEffectService.filterUsersEffect(filterData);
 
     return this.usersRepoService.getUsersRepo(params).pipe(
-      tap((response: IResponseData<IUsersResDTO>) => {
+      tap((response: IUsersResDTO) => {
         patchState({
-          userList: response.data.items,
-          hasNext: response.data.hasNext,
+          userList: response.items,
+          totalCount: response.total_count,
+          hasNext: response.incomplete_results,
         });
       })
     );

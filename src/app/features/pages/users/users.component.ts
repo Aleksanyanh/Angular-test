@@ -13,9 +13,12 @@ import { NotificationsService } from '@app/core/services/notification.service';
 import { NotificationEnum } from '@app/core/enums/notification.enum';
 import { GetUsers } from '@app/store/actions/users.action';
 import { IUsersResModel, IUsersState, UsersFilterViewModel } from '@app/features/models/users.model';
-import { LOADING_LOTTIE, RESET_FILTER_ICON } from '@app/core/constants/image';
+import { LOADING_LOTTIE } from '@app/core/constants/image';
 import { UsersState } from '@app/store/state/users.state';
 import { NO_WHITE_SPACE } from '@app/core/constants/regexp';
+
+// import { SubjectService } from '@app/features/services/subject.service';
+// import { ScrollOptionsViewModel } from '@app/core/models/page.model';
 
 @UntilDestroy()
 @Component({
@@ -35,26 +38,51 @@ export class UsersComponent implements OnInit {
       [Validators.required, Validators.pattern(NO_WHITE_SPACE), Validators.minLength(2), Validators.maxLength(30)],
     ],
   });
-  isPageEmpty = false;
+  isPageEmpty = true;
   hasError = false;
   loadingLottie = LOADING_LOTTIE;
-  resetFiltericon = RESET_FILTER_ICON;
+  // scrollButtonState = false;
+  // scrollOptions: any = new ScrollOptionsViewModel();
 
   constructor(
     public fb: FormBuilder,
     private store: Store,
     private router: Router,
+    // private subjectService: SubjectService,
     private notificationsService: NotificationsService
-  ) {}
+  ) {
+    // this.subjectService.loadPageSub.pipe(untilDestroyed(this)).subscribe((componentEnum: FeatureComponentEnum) => {
+    //   if (componentEnum === FeatureComponentEnum.Users) {
+    //     this.scrollButtonState = true;
+    //     this.scrollOptions = new ScrollOptionsViewModel();
+    //     this.filterData.paging.skip = this.UsersState.userList.length;
+    //     this.store.dispatch(new LoadUsers(this.filterData));
+    //   }
+    // });
+  }
 
   onUpdateFilter(): void {
+    // this.scrollButtonState = false;
     this.store.dispatch(new GetUsers(this.filterData)).subscribe(this.successResCB, this.errorResCB);
   }
 
-  onResetFilter() {
+  onResetFilter(): void {
+    // this.scrollButtonState = false;
     this.filterForm.reset();
     this.store.dispatch(new GetUsers(this.filterData)).subscribe(this.successResCB, this.errorResCB);
   }
+
+  trackByID(_: number, data: IUsersResModel): number {
+    return data.id;
+  }
+
+  // onScrollDown() {
+  //   this.pageView.nativeElement.scrollIntoView(this.scrollOptions);
+  //   this.scrollOptions =
+  //     this.scrollOptions.block === 'end'
+  //       ? new ScrollOptionsViewModel({ block: 'start' })
+  //       : new ScrollOptionsViewModel({ block: 'end' });
+  // }
 
   ngOnInit(): void {
     this.store
@@ -68,12 +96,11 @@ export class UsersComponent implements OnInit {
       .select(UsersState.filterData)
       .pipe(filter(Boolean), untilDestroyed(this))
       .subscribe((data: UsersFilterViewModel) => {
-        debugger;
         this.filterData = cloneDeep(data);
       });
   }
 
-  private successResCB = (state: any) => {
+  private successResCB = (state: any): void => {
     this.hasError = false;
 
     if (state.users.userList.length) {
@@ -83,9 +110,9 @@ export class UsersComponent implements OnInit {
     }
   };
 
-  private errorResCB = (err: HttpErrorResponse) => {
+  private errorResCB = (err: HttpErrorResponse): void => {
     this.hasError = true;
-    this.notificationsService.notify(NotificationEnum.Error, 'ERROR (Users) ====>', `${err}`);
-    console.log('ERROR (Users) ====>', err);
+    this.notificationsService.notify(NotificationEnum.Error, 'ERROR (Users) ====>', `${err.message}`);
+    console.log('ERROR (Users) ====>', err.message);
   };
 }
