@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { SAVE_LOTTIE } from '@app/core/constants/image';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeaturesService {
-  public copyId = null;
-  public saveLottie = null;
-  copyUserId(id: number): void {
-    this.copyId = id;
-    this.saveLottie = SAVE_LOTTIE;
-    setTimeout(() => {
-      this.saveLottie = null;
-    }, 1500);
+  constructor(private _snackBar: MatSnackBar) {}
+
+  onCopyUserId(message: string) {
+    this._snackBar.open(message, '', {
+      duration: 2000,
+    });
   }
 }
