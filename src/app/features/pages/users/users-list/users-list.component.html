@@ -38,9 +38,11 @@
             <div class="G-custom-table-td">
               <div
                 (click)="onToggleImageModal(true, item.avatar_url)"
-                class="G-image-thumb G-cursor"
-                [ngStyle]="{ 'background-image': 'url(' + item.avatar_url + ')' }"
-              ></div>
+                class="G-image-thumb"
+                [class.G-cursor]="item.avatar_url"
+              >
+                <img class="G-image-cover" [src]="item.avatar_url | defaultImg | safe: 'url'" />
+              </div>
             </div>
             <div class="G-custom-table-td">
               <p>{{ item.login }}</p>

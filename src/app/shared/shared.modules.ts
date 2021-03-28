@@ -12,12 +12,14 @@ import { NgZorroModule } from '@app/shared/ng-zorro-module';
 import player from 'lottie-web';
 import { FilterWrapperComponent } from '@app/shared/components/filter-wrapper/filter-wrapper.component';
 import { LoadMoreComponent } from '@app/shared/components/load-more/load-more.component';
+import { SafePipe } from '@app/shared/pipes/safe.pipe';
+import { DefaultImgPipe } from '@app/shared/pipes/default-img.pipe';
 
 export function playerFactory() {
   return player;
 }
 
-const components = [FilterWrapperComponent, LoadMoreComponent];
+const components = [FilterWrapperComponent, LoadMoreComponent, DefaultImgPipe, SafePipe];
 
 const modules = [
   HttpClientModule,

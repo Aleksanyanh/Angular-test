@@ -39,7 +39,9 @@ export class UsersListComponent implements OnInit {
   }
 
   onToggleImageModal(bool: boolean, image: string): void {
-    this.store.dispatch([new SetCurrentUserImage(image), new ToggleUserImageModal(bool)]);
+    if (image) {
+      this.store.dispatch([new SetCurrentUserImage(image), new ToggleUserImageModal(bool)]);
+    }
   }
 
   trackByID(_: number, data: IUsersResModel): number {
